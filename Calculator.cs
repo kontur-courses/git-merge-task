@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Kontur.Courses.Git
 {
 	public class Calculator
@@ -30,6 +32,23 @@ namespace Kontur.Courses.Git
 			if (op == "/")
 				return v1 / v2;
 			return Maybe<double>.FromError("Unknown operation '{0}'", op);
+		}
+
+		public static string[] SplitInput(string line)
+		{
+			if (line.Length == 0) return new string[0];
+			List<string> res = new List<string> { "" };
+			bool isDigit = char.IsDigit(line[0]);
+			foreach (var ch in line)
+			{
+				if (char.IsDigit(ch) != isDigit)
+				{
+					res.Add("");
+					isDigit = !isDigit;
+				}
+				res[res.Count - 1] += ch;
+			}
+			return res.ToArray();
 		}
 	}
 }
