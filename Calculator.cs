@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Kontur.Courses.Git
 {
@@ -46,7 +47,8 @@ namespace Kontur.Courses.Git
 					res.Add("");
 					isDigit = !isDigit;
 				}
-				res[res.Count - 1] += ch;
+				if (!char.IsWhiteSpace(ch))
+					res[res.Count - 1] += ch;
 			}
 			return res.ToArray();
 		}
