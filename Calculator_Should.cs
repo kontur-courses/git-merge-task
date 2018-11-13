@@ -31,6 +31,9 @@ namespace Kontur.Courses.Git
 		}
 
 		[TestCase("asd", "+", "2")]
+		[TestCase("2", "+", "asd")]
+		[TestCase("asd", "+", "asd")]
+		[TestCase("asd", "asd", "asd")]
 		[TestCase("2", "asd", "3")]
 		public void ThreeArg_BadInput(params string[] args)
 		{
