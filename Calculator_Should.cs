@@ -36,6 +36,15 @@ namespace Kontur.Courses.Git
 		}
 
 		[Test]
+		public void TwoArg()
+		{
+			Calc("5");
+			Assert.AreEqual(6, Calc("+ 1").Value);
+			Assert.AreEqual(6, Calc("").Value);
+			Assert.AreEqual(6, Calc("").Value);
+		}
+
+		[Test]
 		public void ThreeArg()
 		{
 			Assert.AreEqual(55, Calc("42 + 13").Value);
